@@ -32,6 +32,7 @@ body {
 .card {
   margin: 72px 0;
   width: 83.2%;
+  max-width: 636px;
   font-size: 1rem;
   display: flex;
   flex-direction: column;
@@ -128,5 +129,78 @@ body {
     list-style: none;
     font-size: 1.4rem;
     color: #c1f9f9;
+  }
+}
+
+//Media query en 767 px;
+@media only screen and (min-width: 767px) {
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .card {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      'section1 section1'
+      'section2 section3';
+
+    &-section {
+      padding: 2.4rem 4rem 0 4rem;
+      color: #fff;
+    }
+
+    &-section:first-child {
+      grid-area: section1;
+
+      & h2 {
+        font-size: 2.4rem;
+      }
+
+      & h3 {
+        color: var(--bright-yellow);
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        font-size: 1.7rem;
+      }
+
+      & p {
+        color: var(--grayish-blue);
+        line-height: 2.6rem;
+        font-size: 1.6rem;
+        font-weight: 300;
+      }
+    }
+
+    &-section:nth-child(2) {
+      grid-area: section2;
+    }
+
+    &-button {
+      margin-bottom: 3.6rem;
+    }
+
+    &-section:last-child {
+      grid-area: section3;
+
+      & ul {
+        padding: 0;
+
+        & li {
+          margin-bottom: 0.4rem;
+        }
+      }
+    }
+
+    &-list {
+      list-style: none;
+      font-size: 1.4rem;
+      color: #c1f9f9;
+    }
   }
 }
